@@ -9,10 +9,12 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio.listen(server);
 
+app.set('port', process.env.PORT || 3000);
+
 require('./sockets')(io);
 
 app.use(express.static(path.join(__dirname,'public')));
 
-server.listen(3000, () => {
-    console.log('server listening on port');
+server.listen(app.get('port'), () => {
+    console.log('server listening on port',app.get('port'));
 });
