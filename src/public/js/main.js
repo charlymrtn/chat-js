@@ -31,7 +31,9 @@ $(function (){
 
     $messageForm.submit(e => {
         e.preventDefault();
-        socket.emit('send message', $messageBox.val());
+        socket.emit('send message', $messageBox.val(), data =>{
+            $chat.append(`<p class="error">${data}</p>`)
+        });
         $messageBox.val('');
         
     });
@@ -46,5 +48,9 @@ $(function (){
             html += `<p><i class="fas fa-user"></i>${data[i]}</p>`;
         }
         $usernames.html(html);
+    });
+
+    socket.on('whisper', (data)=>{
+        $chat.append(`<p class="whisper"><b>${data.nick}:</b> ${data.msg}</p>`);
     });
 });
