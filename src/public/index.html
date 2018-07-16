@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
 
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 <body>
@@ -15,21 +17,49 @@
         <a href="/" class="navbar-brand mx-auto">JS Chat Pajaro</a>
     </nav>
 
-    <div class="container">
-        <div class="col-md-6 mt-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>platiquemos</h4>
-                </div>
-                <div id="chat" class="card-body"></div>
-                <form id="message-form" action="" class="card-footer">
-                    <div class="input-group">
-                        <input type="text" id="message" class="form-control">
-                        <div class="input-group-append">
-                            <input type="submit" class="btn btn-warning">
-                        </div>
+    <div class="card col-md-4 mt-5 mx-auto" id="nickWrap">
+        <div class="card-header">
+            <h3>Ingresa tu nombre de usuario:</h3>
+        </div>
+        <p id="nickerror"></p>
+        <div class="card-body">
+            <form id="nickForm">
+                <input type="text" id="nickname" class="form-control">
+                <button type="submit" class="btn btn-warning mt-2">
+                    <i class="fas fa-cannabis"></i> Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="contentWrap">
+        <div class="row mt-2">
+            <div class="col-md-6 offset-md-1">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>platiquemos</h4>
                     </div>
-                </form>
+                    <div id="chat" class="card-body"></div>
+                    <form id="message-form" action="" class="card-footer">
+                        <div class="input-group">
+                            <input type="text" id="message" class="form-control">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fas fa-cannabis"></i>Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="usernames"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
